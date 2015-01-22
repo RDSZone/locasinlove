@@ -1,0 +1,38 @@
+// -------------------------------------------------
+//
+// Useful mixins
+// 
+// -------------------------------------------------
+
+
+// ------------------------------------------------
+// Enable hardware acceleration
+//
+
+@mixin fast() {
+  @include transform(translate3d(0,0,0));
+}
+
+
+
+// ------------------------------------------------
+// Media queries
+//
+
+$breakpoints: (
+  "extra-small" 300px,
+  "small" 350px,
+  "medium" 700px,
+  "large" 1040px,
+  "extra-large" 1500px
+);
+
+@mixin mq($size) { 
+  @each $breakpoint in $breakpoints {
+    @if ($size == nth($breakpoint, 1)) {
+      @media (min-width: nth($breakpoint, 2)) {
+        @content;
+      }
+    }
+  }
+}

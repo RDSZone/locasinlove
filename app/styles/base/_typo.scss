@@ -1,0 +1,127 @@
+// -------------------------------------------------
+//
+// Typography
+// 
+// -------------------------------------------------
+@import url(http://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic);
+
+
+
+
+// ------------------------------------------------
+// Display face
+//
+
+@mixin type--display() {
+  font-family:  Helvetica, "Karla", sans-serif;  
+  font-weight: bold;
+  font-style: normal;
+}
+
+
+// ------------------------------------------------
+// Body face
+//
+
+@mixin type--body() {
+  font-family: Helvetica, "Karla", Arial, sans-serif;  
+}
+
+// ------------------------------------------------
+// Type size
+//
+
+
+
+// ------------------------------------------------
+// Uppercase
+//
+
+@mixin uppercase() {
+  text-transform: uppercase;
+  letter-spacing: 0em;
+}
+
+
+// ------------------------------------------------
+// Body
+//
+
+body {
+  @include type--body;
+  font-size: 16;
+}
+
+
+// ------------------------------------------------
+// Lists
+//
+
+ul,ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// ------------------------------------------------
+// Links
+//
+
+a,
+a:visited {
+  @include transition(border-color 0.2s);
+  color: black;
+  text-decoration: none;
+  &:hover {
+    border-bottom-color: transparent;
+  }
+}
+  
+
+
+// ------------------------------------------------
+// Headings
+//
+
+h1,h2,h3,h4,h5 {
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+
+// Red bull music academy 
+
+h1{
+  letter-spacing: -1px;
+  font-weight: bold;
+  @include mq("medium"){
+    font-size: 2em;
+  }
+  @include mq("extra-large"){
+    font-size: 3em;
+  }
+}
+
+
+
+// ------------------------------------------------
+// Paragraphs
+//
+
+
+p {
+  text-align: left;
+  margin: 0 0 1.5em;
+
+  @include mq("large") {
+    text-align: center;
+  } 
+
+  ul {
+    text-align: left;
+  }
+}
+
+

@@ -1,0 +1,26 @@
+// -------------------------------------------------
+//
+// Base
+// 
+// -------------------------------------------------
+
+// NOTE: Type rules set in base/_typography.scss
+
+* {
+  @include box-sizing(border-box);
+  outline:none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::selection {
+  background: $key;
+  color: $white;
+}
+::-moz-selection {
+  background: $key;
+  color: $white;
+}
+
