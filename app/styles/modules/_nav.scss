@@ -17,7 +17,7 @@ nav{
 	ul.nav-options{
 		width: 70%;
 		margin-left: 25%;
-		margin-right: 10px;
+		margin-right: 20px;
 		display: block;
 		color: black;
 		text-align: right;
@@ -26,6 +26,7 @@ nav{
 			font-weight: lighter;
 			text-transform: uppercase;
 			padding: 0 10px;
+			font-size: 0.8em;
 			a{
 				&:hover{
 					border-bottom: 5px solid black;

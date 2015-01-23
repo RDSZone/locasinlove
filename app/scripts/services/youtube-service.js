@@ -28,6 +28,7 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
     channelId: 'UUcTzmNyy1AXfYmLCtIewDhA',
     username: 'locasinlove',
     videoArray: [],
+    alreadyInit: false,
 
     //YT player iframe
     player: {},
@@ -86,49 +87,64 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
       var self = this;
       var deferred = $q.defer();
 
-      var w = angular.element($window);
-
-      var tag = document.createElement('script');
-
-      tag.src = 'https://www.youtube.com/iframe_api';
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
-
-      
       function onPlayerReady(event){
         deferred.resolve(self.player);
+        self.alreadyInit = true;
+      }
+
+      
+      // ------------------------------------------------
+      // Only inject scripts if not already init
+      //
+      
+      if (!self.alreadyInit){
+        var tag = document.createElement('script');
+
+        tag.src = 'https://www.youtube.com/iframe_api';
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      }
+
+      else{
+        self.player = new YT.Player('player', {
+            height: 640,
+            width: 390,
+            //load first video from array
+            videoId: self.videoArray[0].id,
+            events: {
+              'onReady': onPlayerReady
+            },
+            playerVars: {
+              autoplay: false,
+              modestbranding: 1,
+              showinfo: 0
+            }
+          });
       }
 
 
-      $window.onYouTubeIframeAPIReady = function(){
-        self.player = new YT.Player('player', {
-          height: 640,
-          width: 390,
-          //load first video from array
-          videoId: self.videoArray[0].id,
-          events: {
-            'onReady': onPlayerReady
-          },
-          playerVars: {
-            autoplay: false,
-            modestbranding: 1,
-            showinfo: 0
-          }
-        });
-      };
-
-      w.bind('resize', function(){
-        self.winWidth = $window.innerWidth;
-        self.playerNode.css({
-          height: (self.winWidth * self.widthPercent) / self.ratio,
-          width: self.winWidth * self.widthPercent,
-        });
-      });
-
+        // ------------------------------------------------
+        // Only called on first init
+        //
+        
+        $window.onYouTubeIframeAPIReady = function(){
+          self.player = new YT.Player('player', {
+            height: 640,
+            width: 390,
+            //load first video from array
+            videoId: self.videoArray[0].id,
+            events: {
+              'onReady': onPlayerReady
+            },
+            playerVars: {
+              autoplay: false,
+              modestbranding: 1,
+              showinfo: 0
+            }
+          });
+        };
 
       return deferred.promise;
-
     },
 
     // ------------------------------------------------
@@ -212,6 +228,10 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
 
     prevVideo: function(){
       tube.prevVideo();
+    },
+
+    alreadyInit: function(){
+      return tube.alreadyInit;
     }
   };
 });

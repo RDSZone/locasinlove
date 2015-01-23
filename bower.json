@@ -12,7 +12,9 @@
     "angular-touch": "~1.2.0",
     "angular-route": "~1.2.0",
     "normalize.css": "~3.0.2",
-    "bourbon": "~4.1.1"
+    "bourbon": "~4.1.1",
+    "contentful": "~0.1.2",
+    "ng-contentful": "~0.1.2"
   },
   "devDependencies": {
     "angular-mocks": "~1.2.0",

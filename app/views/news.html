@@ -1,1 +1,11 @@
-<p>This is the news view.</p>
+<div nav></div>
+<section class="news">
+	<div class="news-entry" ng-repeat="news in newsArray">
+		
+		<div class="news-image-wrapper">
+			<img ng-if="news.image.fields.file.url" ng-src="{{news.image.fields.file.url}}" />
+		</div>
+		<h2>{{news.title}}</h2>
+		<p>{{news.body}}</p>
+	</div>
+</section>

@@ -6,10 +6,19 @@
  * @description
  * # nav
  */
-angular.module('locasApp').directive('nav', function () {
+angular.module('locasApp').directive('nav', function ($location) {
+	
+	var link = function($scope){
+		$scope.go = function(path){
+			$location.path(path);
+		};
+	};
+
+
 	return {
 		templateUrl: 'views/partials/_nav.html',
 		restrict: 'A',
-		replace: true
+		replace: true,
+		link: link
 	};
 });

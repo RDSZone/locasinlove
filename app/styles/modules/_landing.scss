@@ -13,8 +13,9 @@
 	position: fixed;
 	top: 0;
 	left: 0;
-	background: url(../images/b11.svg) repeat-y center center;
-	background-size: 100%;
+	overflow: hidden;
+	// background: url(../images/b11.svg) repeat-y center center;
+	// background-size: 100%;
 	.spirit-animal{
 		position: absolute;
 		bottom: 0;

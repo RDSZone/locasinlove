@@ -114,6 +114,7 @@ h1{
 p {
   text-align: left;
   margin: 0 0 1.5em;
+  font-family: 'Karla', Helvetica, sans-serif;
 
   @include mq("large") {
     text-align: center;

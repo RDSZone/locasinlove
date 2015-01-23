@@ -7,11 +7,11 @@
  * # NewsCtrl
  * Controller of the locasApp
  */
-angular.module('locasApp')
-  .controller('NewsCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('locasApp').controller('NewsCtrl', ['$scope', 'contentfulClient', function ($scope, contentfulClient) {
+
+	contentfulClient.entries({'content_type': '6PwlNgr5pCEmYc8gggo2si', 'include': 1}).then(function(response){
+		$scope.newsArray = response[0];
+		console.log(response);
+	});
+
+}]);
