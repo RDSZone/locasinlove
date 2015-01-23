@@ -7,27 +7,9 @@
  * # VideosCtrl
  * Controller of the locasApp
  */
-angular.module('locasApp').controller('VideosCtrl', ['$scope', 'youtubeService', function ($scope, youtubeService) {
+angular.module('locasApp').controller('VideosCtrl', ['$scope', function ($scope) {
 	
-	// ------------------------------------------------
-	// Get list of all YouTube videos in playlist
-	//
 	
-	youtubeService.getData().then(function(response){
-		
-		//set scope on videos
-		$scope.videos = response;
 
-		// ------------------------------------------------
-		// Set up player once videos are in. Defaults to first video.
-		//
-		
-		youtubeService.init().then(function(response){
-			$scope.player = response;
-
-			//retrieve current video
-			$scope.video = youtubeService.getCurrent();
-		});
-	});
 
 }]);

@@ -31,6 +31,13 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
 
     //YT player iframe
     player: {},
+    playerNode: document.getElementById('player'),
+
+    //sizing
+    winWidth: $window.innerWidth,
+    winHeight: $window.innerHeight,
+    ratio: 640/390,
+    widthPercent: 0.7,
 
     currentItem: 0,
 
@@ -79,6 +86,8 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
       var self = this;
       var deferred = $q.defer();
 
+      var w = angular.element($window);
+
       var tag = document.createElement('script');
 
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -94,8 +103,8 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
 
       $window.onYouTubeIframeAPIReady = function(){
         self.player = new YT.Player('player', {
-          height: '390',
-          width: '640',
+          height: 640,
+          width: 390,
           //load first video from array
           videoId: self.videoArray[0].id,
           events: {
@@ -109,6 +118,15 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
         });
       };
 
+      w.bind('resize', function(){
+        self.winWidth = $window.innerWidth;
+        self.playerNode.css({
+          height: (self.winWidth * self.widthPercent) / self.ratio,
+          width: self.winWidth * self.widthPercent,
+        });
+      });
+
+
       return deferred.promise;
 
     },
@@ -120,7 +138,52 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
     getCurrent: function(){
       var self = this;
       return self.videoArray[self.currentItem];
+    },
+
+    // ------------------------------------------------
+    // Next Video Function
+    //
+
+    nextVideo: function(){
+      var self = this;
+
+      //get ref to current video
+      if (self.currentItem < self.videoArray.length){
+        self.currentItem++;
+      }
+
+      else{
+        self.currentItem = 0;
+      }
+
+      var newId = self.videoArray[self.currentItem].id;
+
+      self.player.cueVideoById({'videoId': newId});
+
+    },
+
+    // ------------------------------------------------
+    // Prev Video Function
+    //
+
+    prevVideo: function(){
+      var self = this;
+
+      //get ref to current video
+      if (self.currentItem <= 0){
+        self.currentItem = self.videoArray.length;
+      }
+
+      else{
+        self.currentItem--;
+      }
+
+      var newId = self.videoArray[self.currentItem].id;
+
+      self.player.cueVideoById({'videoId': newId});
     }
+    
+    
 
 
     
