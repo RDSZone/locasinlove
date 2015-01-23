@@ -68,11 +68,11 @@
 				@include user-select(none);
 				&.control-prev{
 					float: left;
-					margin-left: 20px;
+					margin-left: 40px;
 				}
 				&.control-next{
 					float: right;
-					margin-right: 20px;
+					margin-right: 40px;
 				}
 				&:hover{
 					background: black;

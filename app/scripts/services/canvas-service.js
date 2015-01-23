@@ -22,26 +22,18 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
     ctx.clearRect(0,0,width, height);
   };
 
-  var dir = 'images/icons/';
 
 
-
-  
-
-  var loadImages = function(){
-    $http.get(dir).success(function(data){
-      console.log(data);
-    });
-  };
 
 
   var canvasMethods = {
 
     fallingDrops: [],
-    noOfDrops: 20,
+    noOfDrops: 1000,
 
     x: 0,
     y: 0,
+    alreadyInit: false,
 
 
     width: $window.innerWidth,
@@ -49,8 +41,10 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
 
 
 
+
     draw: function(){
 
+      //clears the canvas
       drawBg();
       
 
@@ -77,8 +71,10 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
 
 
 
-    setup: function(){
+    setup: function(image){
       var self = this;
+      console.log(self.alreadyInit);
+
 
       self.width = $window.innerWidth - 10;
       self.height = $window.innerHeight - 10;
@@ -89,13 +85,19 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
         
 
         ctx = canvas.getContext('2d');
+
+        //clear the canvas before starting, so route changes dont' double up
+        ctx.clearRect(0,0,self.width,self.height);
+
         for (var i = 0; i < self.noOfDrops; i++){
           var fallingDr = {};
 
+          var size = Math.floor(Math.random() * 15);
+
           fallingDr.image = new Image();
-          fallingDr.image.src = 'images/drop.png';
-          fallingDr.image.height = 5;
-          fallingDr.image.width = 10;
+          fallingDr.image.src = image;
+          fallingDr.image.height = size;
+          fallingDr.image.width = size;
 
           fallingDr.x = Math.random() * canvas.width;
           fallingDr.y = Math.random() * 5;
@@ -103,7 +105,10 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
           fallingDrops.push(fallingDr);
         }
 
-        setInterval(self.draw, 25);
+        if (self.alreadyInit === false){
+          setInterval(self.draw, 25);
+        }
+        
       }
 
     }
@@ -113,11 +118,14 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
 
   // Public API here
   return {
-    setup: function () {
-      canvasMethods.setup();
+    setup: function (image) {
+      canvasMethods.setup(image);
     },
     loadImages: function(){
       return loadImages();
+    },
+    clearCanvas: function(){
+      canvasMethods.clearCanvas();
     }
   };
 

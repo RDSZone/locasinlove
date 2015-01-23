@@ -6,12 +6,28 @@
  * @description
  * # canvasRain
  */
-angular.module('locasApp').directive('canvasRain', ['canvasService', function (canvasService) {
+angular.module('locasApp').directive('canvasRain', ['contentfulClient', 'canvasService', function (contentfulClient, canvasService) {
+
+	
+	// -------------------------------------------------
+	//
+	// Simply grabs an image from Contentful to insert into the falling rain canvas, and inits the canvas
+	// 
+	// -------------------------------------------------
+	
+	var link = function(){
+		contentfulClient.entries({'sys.id': '3BSziMeUmICgAWYimOA0qu', 'include': 1}).then(function(response){
+			var image = response[0].fields.image.fields.file.url;
+			canvasService.setup(image);
+		});
+	};
+
+
+	
+
 
 	return {
 		restrict: 'EA',
-		link: function(){
-			canvasService.setup();
-		}
+		link: link
 	};
 }]);

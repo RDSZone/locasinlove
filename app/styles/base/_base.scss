@@ -35,4 +35,5 @@ canvas{
 	max-height: 100% !important;
 	height: 100%;
 	opacity: 1;
+	@include fast();
 }
