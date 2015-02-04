@@ -5,13 +5,13 @@
 		<div class="row head">
 			<div class="cell">Date</div>
 			<div class="cell">Location</div>
-			<div class="cell">Venue</div>
+			<div class="cell venue">Venue</div>
 		</div>
 
-		<a class="row body" ng-href="{{show.fields.url}}" target="self" ng-repeat="show in shows" ng-if="show.fields.dateTime">
-			<div class="cell">{{show.fields.dateTime | date: 'MMM dd'}}</div>
-			<div class="cell">{{show.fields.cityCountry}}</div>
-			<div class="cell">{{show.fields.venue}}</div>
+		<a class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows">
+			<div class="cell">{{show.date | date: 'MMM dd'}}</div>
+			<div class="cell">{{show.cityCountry}}</div>
+			<div class="cell venue">{{show.venue}}</div>
 		</a>
 	</div>
 </section>

@@ -16,7 +16,6 @@ angular.module('locasApp').directive('playerControls', ['youtubeService', functi
 		//
 	
 		var alreadyInit = youtubeService.alreadyInit();
-		console.log(alreadyInit);
 
 		youtubeService.getData().then(function(response){
 

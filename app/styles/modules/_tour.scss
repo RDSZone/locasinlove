@@ -23,7 +23,7 @@
 	.row{
 		display: table-row;
 		&.head{
-			font-size: 1.6em;
+			font-size: 3em;
 			@include mq("medium"){
 				font-size: 2.5em;
 			}
@@ -33,6 +33,10 @@
 			font-weight: bold;
 		}
 		&.body{
+			font-size: 1.2em;
+			@include mq("large"){
+				font-size: 1.5em;
+			}
 			&:hover{
 				@include animation(colorCycle .2s infinite linear);
 			}
@@ -41,5 +45,16 @@
 	.cell{
 		display: table-cell;
 		padding: 10px;
+	}
+
+	// ------------------------------------------------
+	// Disable venue on mobile
+	//
+	
+	.venue{
+		display: none;
+		@include mq("medium"){
+			display: table-cell;
+		}
 	}
 }
