@@ -9,12 +9,12 @@
  * # canvasService
  * Factory in the locasApp.
  */
-angular.module('locasApp').factory('canvasService', function ($window, $http) {
+angular.module('locasApp').factory('canvasService', function ($window, $http, $q) {
 
   var canvas;
-  var parent = document.getElementById('landing');
   var ctx;
   var animate;
+  var parent;
 
   //container
   var fallingDrops = [];
@@ -28,10 +28,17 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
 
 
   function destroyCanvas(){
+    var deferred = $q.defer();
     cancelAnimationFrame(animate);
-    if (parent && canvas){
+    if (canvas){
       parent.removeChild(canvas);
+      deferred.resolve('destroyed');
     }
+    else{
+      deferred.resolve('init');
+    }
+
+    return deferred.promise;
   }
 
 
@@ -78,7 +85,9 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
     setup: function(image){
       var self = this;
 
+      parent = document.getElementById('landing');
       canvas = document.createElement('canvas');
+
       self.width = $window.innerWidth;
       self.height = $window.innerHeight;
       canvas.width = self.width;

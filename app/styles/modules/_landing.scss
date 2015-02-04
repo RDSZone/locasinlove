@@ -14,8 +14,7 @@
 	top: 0;
 	left: 0;
 	overflow: hidden;
-	// background: url(../images/b11.svg) repeat-y center center;
-	// background-size: 100%;
+	@include fast();
 	.spirit-animal{
 		position: absolute;
 		bottom: 0;
@@ -23,11 +22,11 @@
 		height: 80%;
 		width: 100%;
 		text-align: center;
-		background: url(../images/landing-bg.png) no-repeat bottom center;
-		background-size: 100%;
-		z-index: 2;
+		background: url(../images/dog.png) no-repeat center center;
+		background-size: contain;
+		z-index: 0;
 		@include mq("medium"){
-			background-position: top center;
+			background-position: center center;
 		}
 	}
 	canvas{

@@ -10,6 +10,7 @@
 	text-align: center;
 	@include display(flex);
 	@include align-items(center);
+	@include fast();
 	.outer-video-frame{
 		width: 90%;
 		height: auto;

@@ -6,6 +6,7 @@
 	width: 100%;
 	overflow: hidden;
 	overflow-y: scroll;
+	@include fast();
 	.info-body{
 		margin-top: 80px;
 		width: 90%;

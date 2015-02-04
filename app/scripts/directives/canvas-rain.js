@@ -23,8 +23,10 @@ angular.module('locasApp').directive('canvasRain', ['contentfulClient', 'canvasS
 			// Destroy canvas before creation so route changes don't double up
 			//
 			
-			canvasService.destroy();
-			canvasService.setup(image);
+			canvasService.destroy().then(function(){
+				canvasService.setup(image);
+			});
+			
 		});
 	};
 

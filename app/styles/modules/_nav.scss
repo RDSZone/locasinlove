@@ -8,6 +8,7 @@ nav{
 	background: $background;
 	display: block;
 	border-bottom: 1px dashed $text;
+	@include fast();
 	.logo{
 		text-align: left;
 		width: 25%;
