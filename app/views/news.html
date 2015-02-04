@@ -1,6 +1,8 @@
 <section class="news">
 
-	
+	<div ng-include="'views/partials/_loading.html'" ng-if="!newsLoaded"></div>
+
+
 	<div class="news-entry" ng-repeat="news in newsArray | orderBy: date ">
 		<h3>{{news.date | date: 'MMM dd yyyy'}}
 		<h1>{{news.title}}</h1>

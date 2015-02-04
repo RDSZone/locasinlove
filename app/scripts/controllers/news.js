@@ -35,8 +35,9 @@ angular.module('locasApp').controller('NewsCtrl', [
 				};
 
 				$scope.newsArray.push(item);
-			
 			}
+
+			$scope.newsLoaded = true;
 		});
 
 		$scope.trust = function(text){
