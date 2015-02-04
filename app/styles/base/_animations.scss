@@ -12,3 +12,15 @@
 		opacity: 1;
 	}
 }
+
+@include keyframes(colorCycle){
+	0%{
+		color: $red;
+	}
+	50%{
+		color: $green;
+	}
+	100%{
+		color: $blue;
+	}
+}

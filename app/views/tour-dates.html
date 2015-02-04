@@ -1,16 +1,17 @@
 <section class="tour">
-	<table>
-		<thead>
-			<th>Date</th>
-			<th>Location</th>
-			<th>Venue</th>
-		</thead>
-		<tbody>
-			<tr ng-repeat="show in shows">
-				<td>{{show.fields.dateTime | date: 'MMM dd yyyy'}}</td>
-				<td>{{show.fields.cityCountry}}</td>
-				<td>{{show.fields.venue}}</td>
-			</tr>
-		</tbody>
-	</table>
+
+
+	<div class="table">
+		<div class="row head">
+			<div class="cell">Date</div>
+			<div class="cell">Location</div>
+			<div class="cell">Venue</div>
+		</div>
+
+		<a class="row body" ng-href="{{show.fields.url}}" target="self" ng-repeat="show in shows" ng-if="show.fields.dateTime">
+			<div class="cell">{{show.fields.dateTime | date: 'MMM dd'}}</div>
+			<div class="cell">{{show.fields.cityCountry}}</div>
+			<div class="cell">{{show.fields.venue}}</div>
+		</a>
+	</div>
 </section>

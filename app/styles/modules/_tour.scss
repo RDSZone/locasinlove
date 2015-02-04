@@ -1,6 +1,45 @@
 .tour{
-	position: relative;
-	top: 50px;
+	position: absolute;
+	left: 0;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+	top: 0;
+	.table{
+		display: table;
+		width: 100%;
+		text-align: left;
+		font-size: 1em;
+		margin-top: 100px;
+		margin-bottom: 200px;
+		@include mq("medium"){
+			font-size: 1.5em;
+		}
+		@include mq("large"){
+			font-size: 2em;
+		}
+	}
+	.row{
+		display: table-row;
+		&.head{
+			font-size: 1.6em;
+			@include mq("medium"){
+				font-size: 2.5em;
+			}
+			@include mq("large"){
+				font-size: 3em;
+			}
+			font-weight: bold;
+		}
+		&.body{
+			&:hover{
+				@include animation(colorCycle .2s infinite linear);
+			}
+		}
+	}
+	.cell{
+		display: table-cell;
+		padding: 10px;
+	}
 }
