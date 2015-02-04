@@ -1,0 +1,27 @@
+.info{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	overflow-y: scroll;
+	.info-body{
+		margin-top: 80px;
+		width: 90%;
+		margin-left: 5%;
+		text-align: left;
+		p{
+			text-align: left;
+			font-size: 1.5em;
+			line-height: 1.5;
+			@include mq("medium"){
+				font-size: 2em;
+			}
+			@include mq("large"){
+				font-size: 5em;
+				line-height: 1;
+			}
+		}
+	}
+}

@@ -10,6 +10,8 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/normalize.css/normalize.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick.css" />
+    <link rel="stylesheet" href="bower_components/slick-carousel/slick/slick-theme.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -39,8 +41,8 @@
                 <li><a ui-sref="tour">Tour Dates</a></li>
                 <li><a ui-sref="videos">Videos</a></li>
                 <li><a ui-sref="gallery">Photos</a></li>
-                <li><a href>Bandcamp</a></li>
-                <li><a ui-serf="info">About</a></li>
+                <li><a href="https://locasinlove.bandcamp.com/" target="self">Bandcamp</a></li>
+                <li><a ui-sref="info">About</a></li>
                 <li class="social"><a href="https://www.facebook.com/locasinlove" target="self">
                     <i class="fa fa-facebook"></i>
                 </a></li>
@@ -85,6 +87,7 @@
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="bower_components/showdown/src/showdown.js"></script>
     <script src="bower_components/moment/moment.js"></script>
+    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -100,6 +103,7 @@
         <script src="scripts/directives/canvas-rain.js"></script>
         <script src="scripts/services/canvas-service.js"></script>
         <script src="scripts/directives/nav-stuff.js"></script>
+        <script src="scripts/directives/set-size.js"></script>
         <!-- endbuild -->
 </body>
 </html>

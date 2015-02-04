@@ -38,5 +38,10 @@
   },
   "scripts": {
     "test": "grunt test"
+  },
+  "frontend": {
+    "name": "Locas In Love",
+    "stylesheets": "app/styles",
+    "javascripts": "app/scripts"
   }
 }

@@ -1,1 +1,39 @@
-<p>This is the photos view.</p>
+<section class="photos">
+	<div ng-include="'views/partials/_loading.html'" ng-if="!imagesLoaded"></div>
+
+	<!-- carousel ng-repeat="gallery in galleries" class="carousel">
+		<slide ng-repeat="image in gallery.fields.images" active="slide.active">
+			<img ng-src="{{image.fields.file.url}}" />
+		</slide>
+	</carousel> -->
+	<div ng-repeat="gallery in galleries" class="gallery-container">
+		<div class="slick">
+			<div class="slide-container" ng-repeat="image in gallery.fields.images">
+				<div class="text-container">
+					<p>{{image.fields.title}}</p>
+				</div>
+				<div class="image-container">
+					<img ng-src="{{image.fields.file.url}}" />
+				</div>
+			</div>
+		</slick>
+	</div>
+
+	<div class="pagination-left" ng-click="prevSlide()"></div>
+	<div class="pagination-right" ng-click="nextSlide()"></div>
+
+</section>
+
+
+<!-- $.fn.slickNext = function() {
+        var _ = this;
+        return _.each(function(index, element) {
+
+            element.slick.changeSlide({
+                data: {
+                    message: 'next'
+                }
+            });
+
+        });
+    }; -->

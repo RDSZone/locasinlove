@@ -6,18 +6,20 @@
 	color: $text;
 	overflow-x: hidden;
 	margin-bottom: 200px;
+	@include fast();
+	@include scroll();
 
 	.news-entry{
 		width: 90%;
-		margin: 200px 5% 0;
+		margin: 100px 5% 0;
 		text-align: left;
 		@include mq("medium"){
 			width: 80%;
-			margin-left: 10%;
+			margin: 150px 10% 0;
 		}
 		@include mq("large"){
 			width: 60%;
-			margin-left: 20%;
+			margin: 200px 20% 0;
 		}
 
 		h1{

@@ -147,6 +147,14 @@ nav{
 			margin: 5px;
 			padding: 5px;
 			font-weight: bold;
+			text-transform: uppercase;
+			&:after{
+				content: '';
+				display: block;
+				width: 100%;
+				height: 10px;
+				background: transparent;
+			}
 			@include mq("large"){
 				font-size: 3em;
 			}
@@ -165,10 +173,8 @@ nav{
 				}
 			}
 			&:hover{
-				background-color: $text;
-
-				a{
-					color: $background;
+				&:after{
+					background: $text;
 				}
 			}
 		}

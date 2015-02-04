@@ -20,7 +20,6 @@ angular.module('locasApp').controller('TourDatesCtrl', ['$scope', 'contentfulCli
 
 
 	contentfulClient.entries({'content_type': '2Vy9CNn3HyCeAQAIMIyaya', 'include': 1}).then(function(response){
-		console.log(response);
 
 		for (var i = 0; i < response.length; i++ ){
 			var item = response[i];
@@ -34,23 +33,24 @@ angular.module('locasApp').controller('TourDatesCtrl', ['$scope', 'contentfulCli
 				date: item.fields.dateTime
 			};
 
+			// -------------------------------------------------
+			//
+			// Loop through and discard any old shows
+			// 
+			// -------------------------------------------------
+
 
 			if (moment(show.compareDate).isAfter(now)){
 				console.log('hit');
 				$scope.shows.push(show);
 			}
 
-
 		}
 
-		console.log($scope.shows);
-		
+		$scope.showsLoaded = true;
 
-		// -------------------------------------------------
-		//
-		// Loop through and discard any old shows
-		// 
-		// -------------------------------------------------
+
+
 		
 	});
 

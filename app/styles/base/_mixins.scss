@@ -41,3 +41,7 @@ $breakpoints: (
 @mixin smallboxy(){
   box-shadow: 1px 0px 1px $text, 0px 1px 0px gray, 2px 1px 0px $text, 1px 2px 0px gray, 3px 2px 0px $text, 2px 3px 0px gray, 4px 3px 0px $text, 3px 4px 0px gray, 5px 4px 0px $text, 4px 5px 0px gray, 6px 5px 0px $text, 5px 6px 0px gray, 7px 6px 0px $text, 6px 7px 0px gray, 8px 7px 0px $text, 7px 8px 0px gray;
 }
+
+@mixin scroll(){
+  -webkit-overflow-scrolling: touch;
+}

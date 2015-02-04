@@ -7,11 +7,30 @@
  * # PhotosCtrl
  * Controller of the locasApp
  */
-angular.module('locasApp')
-  .controller('PhotosCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('locasApp').controller('PhotosCtrl', ['$scope', '$timeout', 'contentfulClient', function ($scope, $timeout, contentfulClient) {
+
+	var target;
+
+	contentfulClient.entries({'content_type': '68E7MREEW484MIsYICmcKq', 'include': 10}).then(function(response){
+
+		$scope.galleries = response;
+		console.log(response);
+
+	
+		$timeout(function(){
+			$('.slick').slick();
+			$scope.imagesLoaded = true;
+		},1000);
+	});
+
+
+	$scope.nextSlide = function(){
+		$('.slick').slick('slickNext');
+	};
+
+	$scope.prevSlide = function(){
+		$('.slick').slick('slickPrev');
+	};
+
+
+}]);
