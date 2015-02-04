@@ -27,10 +27,10 @@ $breakpoints: (
   "extra-large" 1500px
 );
 
-@mixin mq($size) { 
+@mixin mq($size, $type: "min-width") { 
   @each $breakpoint in $breakpoints {
     @if ($size == nth($breakpoint, 1)) {
-      @media (min-width: nth($breakpoint, 2)) {
+      @media ($type: nth($breakpoint, 2)) {
         @content;
       }
     }

@@ -18,6 +18,12 @@ angular.module('locasApp').directive('canvasRain', ['contentfulClient', 'canvasS
 	var link = function(){
 		contentfulClient.entries({'sys.id': '3BSziMeUmICgAWYimOA0qu', 'include': 1}).then(function(response){
 			var image = response[0].fields.image.fields.file.url;
+
+			// ------------------------------------------------
+			// Destroy canvas before creation so route changes don't double up
+			//
+			
+			canvasService.destroy();
 			canvasService.setup(image);
 		});
 	};

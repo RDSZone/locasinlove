@@ -25,5 +25,20 @@
 		text-align: center;
 		background: url(../images/landing-bg.png) repeat top center;
 		background-size: 100%;
+		z-index: 2;
+	}
+	canvas{
+		background-color: transparent;
+		position: fixed;
+		overflow: hidden;
+		top: 0;
+		left: 0;
+		width: 100%;
+		max-width: 100% !important;
+		max-height: 100% !important;
+		height: 100%;
+		opacity: 1;
+		z-index: 0;
+		@include fast();
 	}
 }

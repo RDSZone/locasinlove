@@ -1,5 +1,7 @@
 'use strict';
 
+/* global requestAnimationFrame:false, cancelAnimationFrame: false */
+
 /**
  * @ngdoc service
  * @name locasApp.canvasService
@@ -9,8 +11,10 @@
  */
 angular.module('locasApp').factory('canvasService', function ($window, $http) {
 
-  var canvas = document.getElementById('canvas');
+  var canvas;
+  var parent = document.getElementById('landing');
   var ctx;
+  var animate;
 
   //container
   var fallingDrops = [];
@@ -23,7 +27,12 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
   };
 
 
-
+  function destroyCanvas(){
+    cancelAnimationFrame(animate);
+    if (parent && canvas){
+      parent.removeChild(canvas);
+    }
+  }
 
 
   var canvasMethods = {
@@ -59,35 +68,27 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
 
       }
 
-    },
-
-    ranIcon: function(){
-
-      var length = fallingIcons.length;
-      var ranNum = Math.floor(Math.random() * length);
-      return ranNum;
+      animate = requestAnimationFrame(canvasMethods.draw);
 
     },
+
 
 
 
     setup: function(image){
       var self = this;
-      console.log(self.alreadyInit);
 
-
-      self.width = $window.innerWidth - 10;
-      self.height = $window.innerHeight - 10;
+      canvas = document.createElement('canvas');
+      self.width = $window.innerWidth;
+      self.height = $window.innerHeight;
       canvas.width = self.width;
       canvas.height = self.height;
 
+      parent.appendChild(canvas);
+
       if (canvas.getContext){
-        
 
         ctx = canvas.getContext('2d');
-
-        //clear the canvas before starting, so route changes dont' double up
-        ctx.clearRect(0,0,self.width,self.height);
 
         for (var i = 0; i < self.noOfDrops; i++){
           var fallingDr = {};
@@ -100,15 +101,16 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
           fallingDr.image.width = size;
 
           fallingDr.x = Math.random() * canvas.width;
-          fallingDr.y = Math.random() * 5;
+          // ------------------------------------------------
+          // Make sure they are above the page
+          //
+          
+          fallingDr.y = Math.random() * -50;
           fallingDr.speed = 3 + Math.random() * 4;
           fallingDrops.push(fallingDr);
         }
 
-        if (self.alreadyInit === false){
-          setInterval(self.draw, 25);
-        }
-        
+        canvasMethods.draw();
       }
 
     }
@@ -121,11 +123,11 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
     setup: function (image) {
       canvasMethods.setup(image);
     },
-    loadImages: function(){
-      return loadImages();
-    },
     clearCanvas: function(){
       canvasMethods.clearCanvas();
+    },
+    destroy: function(){
+      return destroyCanvas();
     }
   };
 
