@@ -3,37 +3,174 @@ nav{
 	width: 100%;
 	height: 50px;
 	text-align: left;
-	padding: 10px;
+	padding: 0 10px;
 	overflow: hidden;
 	background: $background;
-	@include display(flex);
-	@include align-items(center);
-	@include flex-direction(row);
-	border-bottom: 1px dashed black;
+	display: block;
+	border-bottom: 1px dashed $text;
 	.logo{
 		text-align: left;
 		width: 25%;
 		display: inline-block;
+		line-height: 50px;
 	}
 	ul.nav-options{
 		width: 70%;
 		margin-left: 25%;
 		margin-right: 40px;
 		display: block;
-		color: black;
+		color: $text;
 		text-align: right;
+		display: none;
 		li{
 			display: inline-block;
 			font-weight: normal;
 			text-transform: uppercase;
 			padding: 0 10px;
 			font-size: 0.7em;
+			color: $text;
 			a{
 				&:hover{
-					border-bottom: 5px solid black;
+					border-bottom: 5px solid $text;
 				}
 			}
 
+		}
+	}
+	.burger{
+		height: 22px;
+		width: 11px;
+		position: relative;
+		float: right;
+		right: 20px;
+		margin: 14px 10px 0 10px;
+		bottom: 1px;
+		font-size: 1em;
+		padding-left: 22px;
+		z-index: 999;
+		&:before, &:after{
+			content: '';
+			display:inline-block;
+			position: absolute;
+			right: 0;
+			height: 2px;
+			width: 100%;
+			@include transition(all .3s ease);
+		}
+		&:before{
+			height: 6px;
+			border-top: 2px solid $text;
+			border-bottom: 2px solid $text;
+			top: 4px;
+		}
+		&:after{
+			bottom: 0;
+			background-color: $text;
+		}
+		&.open{
+			&:before, &:after{
+				@include transform(rotate(45deg));
+			}
+			&:before{
+				border-bottom: 2px solid $text;
+				border-top: none;
+				top: 50%;
+				height: 1px;
+			}
+			&:after{
+				@include transform(rotate(-45deg));
+				top: 50%;
+			}
+		}
+	}
+}
+
+.nav-overlay{
+	position: fixed;
+	top: -150%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.9);
+	z-index: 99;
+	@include display(flex);
+	@include align-items(center);
+	@include justify-content(center);
+	@include transition(transform .5s ease);
+	&.open-up{
+		@include transform(translateY(150%));
+	}
+	.nav-exit{
+		position: absolute;
+		top: 0;
+		right: 10px;
+		display: block;
+		width: 50px;
+		height: 50px;
+	}
+	.nav-exit-click{
+		height: 22px;
+		width: 11px;
+		position: relative;
+		float: right;
+		margin: 14px 10px 0 10px;
+		bottom: 1px;
+		font-size: 1em;
+		padding-left: 22px;
+		z-index: 999;
+		&:before, &:after{
+			content: '';
+			display:inline-block;
+			position: absolute;
+			right: 0;
+			height: 2px;
+			width: 100%;
+			@include transform(rotate(45deg));
+			@include transition(all .3s ease);
+		}
+		&:before{
+			border-bottom: 2px solid $text;
+			border-top: none;
+			top: 50%;
+			height: 1px;
+		}
+		&:after{
+			bottom: 0;
+			background-color: $text;
+			@include transform(rotate(-45deg));
+			top: 50%;
+		}
+	}
+	ul{
+		li{
+			font-size: 2em;
+			margin: 5px;
+			padding: 5px;
+			font-weight: bold;
+			@include mq("large"){
+				font-size: 3em;
+			}
+			a{
+				width: 100%;
+				height: 100%;
+				display: inline-block;
+			}
+			&.social{
+				display: inline-block;
+				&:hover{
+					background-color: $background;
+					a{
+						color: $text;
+					}
+				}
+			}
+			&:hover{
+				background-color: $text;
+
+				a{
+					color: $background;
+				}
+			}
 		}
 	}
 }

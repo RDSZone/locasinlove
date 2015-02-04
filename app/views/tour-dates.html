@@ -1,1 +1,16 @@
-<p>This is the tour-dates view.</p>
+<section class="tour">
+	<table>
+		<thead>
+			<th>Date</th>
+			<th>Location</th>
+			<th>Venue</th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="show in shows">
+				<td>{{show.fields.dateTime | date: 'MMM dd yyyy'}}</td>
+				<td>{{show.fields.cityCountry}}</td>
+				<td>{{show.fields.venue}}</td>
+			</tr>
+		</tbody>
+	</table>
+</section>

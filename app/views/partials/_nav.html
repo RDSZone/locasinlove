@@ -1,11 +1,15 @@
-<nav>
-	<h1 class="logo" ng-click="go('/')">Locas In Love</h1>
+<nav id="nav">
+	<h1 class="logo"><a ui-sref="home">Locas In Love</a></h1>
 	<ul class="nav-options">
-		<li><a href="#/news">News</a></li>
-		<li><a href="#/tour-dates">Tour Dates</a></li>
-		<li><a ng-click="go('/videos')">Videos</a></li>
-		<li><a href="#/photos">Photos</a></li>
+		<li><a ui-sref="home">Home</a></li>
+		<li><a ui-sref="news">News</a></li>
+		<li><a ui-sref="tour">Tour Dates</a></li>
+		<li><a ui-sref="videos">Videos</a></li>
+		<li><a ui-sref="gallery">Photos</a></li>
 		<li><a href>Bandcamp</a></li>
-		<li><a href="#/info">About</a></li>
+		<li><a ui-serf="info">About</a></li>
 	</ul>
+	<div class="burger" ng-click="nav.toggle($event)"></div>
 </nav>
+
+

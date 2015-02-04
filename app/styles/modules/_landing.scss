@@ -23,9 +23,12 @@
 		height: 80%;
 		width: 100%;
 		text-align: center;
-		background: url(../images/landing-bg.png) repeat top center;
+		background: url(../images/landing-bg.png) no-repeat bottom center;
 		background-size: 100%;
 		z-index: 2;
+		@include mq("medium"){
+			background-position: top center;
+		}
 	}
 	canvas{
 		background-color: transparent;

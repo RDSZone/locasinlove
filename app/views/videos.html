@@ -1,11 +1,16 @@
-<section class="videos" player-controls>
-	<div nav></div>
+<section class="videos" player-controls ng-swipe-left="prevVid()" ng-swipe-right="nextVid()">
+
+	<div ng-include="'views/partials/_loading.html'" ng-if="!videoLoaded"></div>
 
 	<div class="outer-video-frame">
+	
 		<div class="video-frame">
 			<div id="player"></div>
 		</div>
+
 		<h1>{{video.title}}</h1>
+
+		<h3 class="instructions">(Swipe for more videos)</h3>
 	</div>
 	
 	

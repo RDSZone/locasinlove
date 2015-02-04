@@ -93,7 +93,7 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
         for (var i = 0; i < self.noOfDrops; i++){
           var fallingDr = {};
 
-          var size = Math.floor(Math.random() * 15);
+          var size = Math.floor(Math.random() * 5);
 
           fallingDr.image = new Image();
           fallingDr.image.src = image;
@@ -122,9 +122,6 @@ angular.module('locasApp').factory('canvasService', function ($window, $http) {
   return {
     setup: function (image) {
       canvasMethods.setup(image);
-    },
-    clearCanvas: function(){
-      canvasMethods.clearCanvas();
     },
     destroy: function(){
       return destroyCanvas();

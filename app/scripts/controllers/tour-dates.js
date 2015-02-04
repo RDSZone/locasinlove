@@ -7,11 +7,11 @@
  * # TourDatesCtrl
  * Controller of the locasApp
  */
-angular.module('locasApp')
-  .controller('TourDatesCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('locasApp').controller('TourDatesCtrl', ['$scope', 'contentfulClient', function ($scope, contentfulClient) {
+
+	contentfulClient.entries({'content_type': '2Vy9CNn3HyCeAQAIMIyaya', 'include': 1}).then(function(response){
+		$scope.shows = response;
+		console.log(response);
+	});
+
+}]);

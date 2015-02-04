@@ -16,9 +16,11 @@
 @impot "base/base";
 @import "base/layout";
 @import "base/z";
+@import "base/animations";
 
 //Modules
 @import "modules/nav";
+@import "modules/loading";
 @import "modules/landing";
 @import "modules/news";
 @import "modules/photos";

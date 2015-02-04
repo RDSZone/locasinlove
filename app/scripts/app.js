@@ -13,39 +13,44 @@ angular
     'ngAnimate',
     'ngCookies',
     'ngResource',
-    'ngRoute',
+    'ui.router',
     'ngSanitize',
     'ngTouch',
     'ng-contentful'
   ])
-  .config(['$routeProvider', 'contentfulClientProvider', function ($routeProvider, contentfulClientProvider) {
-    $routeProvider
-      .when('/', {
+  .config(['$stateProvider', '$urlRouterProvider', 'contentfulClientProvider', function ($stateProvider, $urlRouterProvider, contentfulClientProvider) {
+    
+    $urlRouterProvider.otherwise('/');
+
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/news', {
+      .state('news', {
+        url: '/news',
         templateUrl: 'views/news.html',
         controller: 'NewsCtrl'
       })
-      .when('/tour-dates', {
+      .state('tour', {
+        url: '/tour',
         templateUrl: 'views/tour-dates.html',
         controller: 'TourDatesCtrl'
       })
-      .when('/videos', {
-        templateUrl: 'views/videos.html',
-        controller: 'VideosCtrl'
+      .state('videos', {
+        url: '/videos',
+        templateUrl: 'views/videos.html'
       })
-      .when('/photos', {
+      .state('gallery', {
+        url: '/gallery',
         templateUrl: 'views/photos.html',
         controller: 'PhotosCtrl'
       })
-      .when('/info', {
+      .state('info', {
+        url: '/info',
         templateUrl: 'views/info.html',
         controller: 'InfoCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
 
     contentfulClientProvider.setSpaceId('crt9xwohg8ee');

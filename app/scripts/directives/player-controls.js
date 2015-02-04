@@ -11,11 +11,41 @@ angular.module('locasApp').directive('playerControls', ['youtubeService', functi
 	var link = function($scope){
 
 
+		// ------------------------------------------------
+		// Get list of all YouTube videos in playlist
+		//
+	
+		var alreadyInit = youtubeService.alreadyInit();
+		console.log(alreadyInit);
+
+		youtubeService.getData().then(function(response){
+
 		
+			//set scope on videos
+			$scope.videos = response;
+
+			// ------------------------------------------------
+			// Set up player once videos are in. Defaults to first video.
+			//
+			
+			youtubeService.init().then(function(response){
+
+				$scope.player = response;
+
+				//retrieve current video
+				$scope.video = youtubeService.getCurrent();
+
+				$scope.videoLoaded = true;
+			});
+		});
 
 
-
-
+		// -------------------------------------------------
+		//
+		// Controls
+		// 
+		// -------------------------------------------------
+		
 
 		$scope.nextVid = function(){
 			youtubeService.nextVideo();

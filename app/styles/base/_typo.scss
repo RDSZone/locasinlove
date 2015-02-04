@@ -70,7 +70,7 @@ ul,ol {
 a,
 a:visited {
   @include transition(border-color 0.2s);
-  color: black;
+  color: $text;
   text-decoration: none;
   &:hover {
     border-bottom-color: transparent;
@@ -96,7 +96,11 @@ h1,h2,h3,h4,h5 {
 h1{
   letter-spacing: -1px;
   font-weight: bold;
+  font-size: 0.7em;
   @include mq("medium"){
+    font-size: 1em;
+  }
+  @include mq("large"){
     font-size: 2em;
   }
   @include mq("extra-large"){
@@ -114,7 +118,13 @@ h1{
 p {
   text-align: left;
   margin: 0 0 1.5em;
-  font-family: 'Helvetica Narrow', Helvetica, sans-serif;
+  font-family: Helvetica, sans-serif;
+  a{
+    border-bottom: 5px solid white;
+    &:hover{
+      border-bottom: 5px solid white;
+    }
+  }
 
   @include mq("large") {
     text-align: center;

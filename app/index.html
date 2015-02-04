@@ -23,7 +23,34 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div ng-view=""></div>
+    <div nav-stuff>
+        <nav id="nav">
+            <h1 class="logo"><a ui-sref="home">Locas In Love</a></h1>
+            <div class="burger" ng-click="nav.toggle($event)"></div>
+        </nav>
+
+        <section class="nav-overlay" id="nav-overlay">
+            <div class="nav-exit">
+                <div class="nav-exit-click open" ng-click="nav.close()"></div>
+            </div>
+            <ul>
+                <li><a ui-sref="home">Home</a></li>
+                <li><a ui-sref="news">News</a></li>
+                <li><a ui-sref="tour">Tour Dates</a></li>
+                <li><a ui-sref="videos">Videos</a></li>
+                <li><a ui-sref="gallery">Photos</a></li>
+                <li><a href>Bandcamp</a></li>
+                <li><a ui-serf="info">About</a></li>
+                <li class="social"><a href="https://www.facebook.com/locasinlove" target="self">
+                    <i class="fa fa-facebook"></i>
+                </a></li>
+                <li class="social"><a href="https://soundcloud.com/locas-in-love" target="self">
+                    <i class="fa fa-soundcloud"></i>
+                </a></li>
+            </ul>
+        </section>
+    </div>
+    <div ui-view=""></div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -45,6 +72,7 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -54,6 +82,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/contentful/dist/contentful.min.js"></script>
     <script src="bower_components/ng-contentful/ng-contentful.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/showdown/src/showdown.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -62,14 +92,13 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/news.js"></script>
         <script src="scripts/controllers/tour-dates.js"></script>
-        <script src="scripts/controllers/videos.js"></script>
         <script src="scripts/controllers/photos.js"></script>
         <script src="scripts/controllers/info.js"></script>
-        <script src="scripts/directives/nav.js"></script>
         <script src="scripts/services/youtube-service.js"></script>
         <script src="scripts/directives/player-controls.js"></script>
         <script src="scripts/directives/canvas-rain.js"></script>
         <script src="scripts/services/canvas-service.js"></script>
+        <script src="scripts/directives/nav-stuff.js"></script>
         <!-- endbuild -->
 </body>
 </html>
