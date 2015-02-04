@@ -13,6 +13,7 @@
 		width: 90%;
 		margin: 100px 5% 0;
 		text-align: left;
+		@include animation(dropIn .5s ease);
 		@include mq("medium"){
 			width: 80%;
 			margin: 150px 10% 0;

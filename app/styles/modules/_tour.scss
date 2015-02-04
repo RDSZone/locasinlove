@@ -9,6 +9,7 @@
 	@include scroll();
 	top: 0;
 	.table{
+		@include animation(dropIn .5s ease);
 		display: table;
 		width: 100%;
 		text-align: left;

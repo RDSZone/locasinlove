@@ -24,3 +24,12 @@
 		color: $blue;
 	}
 }
+
+@include keyframes(dropIn){
+	from{
+		@include transform(translateY(-20px) translateZ(0));
+	}
+	to{
+		@include transform(translateY(0) translateZ(0));
+	}
+}

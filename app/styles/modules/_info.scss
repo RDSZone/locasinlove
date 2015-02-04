@@ -12,6 +12,7 @@
 		width: 90%;
 		margin-left: 5%;
 		text-align: left;
+		@include animation(dropIn .5s ease);
 		p{
 			text-align: left;
 			font-size: 1.5em;
