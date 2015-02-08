@@ -8,21 +8,28 @@
 	overflow-y: scroll;
 	@include fast();
 	.info-body{
-		margin-top: 80px;
+		margin-top: 120px;
+		margin-bottom: 120px;
 		width: 90%;
 		margin-left: 5%;
 		text-align: left;
 		@include animation(dropIn .5s ease);
+		@include mq("medium"){
+			width: 80%;
+			margin-left: 10%;
+		}
+		@include mq("large"){
+			width: 70%;
+			margin-left: 15%;
+		}
 		p{
 			text-align: left;
-			font-size: 1.5em;
+			font-size: 1em;
 			line-height: 1.5;
+			font-weight: lighter;
+
 			@include mq("medium"){
-				font-size: 2em;
-			}
-			@include mq("large"){
-				font-size: 5em;
-				line-height: 1;
+				font-size: 1.5em;
 			}
 		}
 	}

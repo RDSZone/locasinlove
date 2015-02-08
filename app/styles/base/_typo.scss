@@ -50,6 +50,7 @@
 body {
   @include type--body;
   font-size: 16;
+  -webkit-font-smoothing: antialiased;
 }
 
 

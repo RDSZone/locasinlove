@@ -7,13 +7,19 @@
 		</slide>
 	</carousel> -->
 	<div ng-repeat="gallery in galleries" class="gallery-container">
+		<div class="gallery-title">
+				<h1>{{gallery.fields.title}}</h1>
+			</div>
 		<div class="slick">
+
 			<div class="slide-container" ng-repeat="image in gallery.fields.images">
 				<div class="text-container">
 					<p>{{image.fields.title}}</p>
 				</div>
 				<div class="image-container">
-					<img ng-src="{{image.fields.file.url}}" />
+					<div class="image-wrapper">
+						<img ng-src="{{image.fields.file.url}}" />
+					</div>
 				</div>
 			</div>
 		</slick>
