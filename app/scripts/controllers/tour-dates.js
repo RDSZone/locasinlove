@@ -41,7 +41,6 @@ angular.module('locasApp').controller('TourDatesCtrl', ['$scope', 'contentfulCli
 
 
 			if (moment(show.compareDate).isAfter(now)){
-				console.log('hit');
 				$scope.shows.push(show);
 			}
 

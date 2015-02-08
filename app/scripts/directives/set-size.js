@@ -12,8 +12,6 @@ angular.module('locasApp').directive('setSize', function () {
 
 		var targetGallery = JSON.parse(attrs.gallery);
 
-		console.log(targetGallery);
-
 		var imageLength = targetGallery.length;
 
 		
@@ -37,9 +35,6 @@ angular.module('locasApp').directive('setSize', function () {
 			});
 		}
 
-		// element.find('.image-container').css({
-		// 	width: (100 / imageLength) + 'px'
-		// });
 	};
 
 

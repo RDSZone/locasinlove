@@ -22,7 +22,6 @@ angular.module('locasApp').controller('NewsCtrl', [
 		contentfulClient.entries({'content_type': '6PwlNgr5pCEmYc8gggo2si', 'include': 1}).then(function(response){
 
 			for (var i = 0; i < response.length; i++ ){
-				console.log(response[i]);
 				var data = response[i];
 				// ------------------------------------------------
 				// Loop through and make new object

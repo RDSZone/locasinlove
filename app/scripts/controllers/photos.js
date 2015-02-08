@@ -13,7 +13,6 @@ angular.module('locasApp').controller('PhotosCtrl', ['$scope', '$timeout', 'cont
 	contentfulClient.entries({'content_type': '68E7MREEW484MIsYICmcKq', 'include': 10}).then(function(response){
 
 		$scope.galleries = response;
-		console.log(response);
 
 	
 		$timeout(function(){
