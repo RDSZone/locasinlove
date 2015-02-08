@@ -178,6 +178,11 @@ nav{
 					background: $text;
 				}
 			}
+			&.active{
+				&:after{
+					background: $text;
+				}
+			}
 		}
 	}
 }

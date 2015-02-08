@@ -6,7 +6,7 @@
  * @description
  * # navStuff
  */
-angular.module('locasApp').directive('navStuff', function () {
+angular.module('locasApp').directive('navStuff', ['$state', function ($state) {
 
 	var link = function($scope){
 
@@ -14,6 +14,9 @@ angular.module('locasApp').directive('navStuff', function () {
 			open: false,
 			burger: $('.burger'),
 			openNav: $('.nav-overlay'),
+			selected: {},
+			//default
+			lastPath: 'home',
 
 			toggle: function(){
 				var self = this;
@@ -36,16 +39,44 @@ angular.module('locasApp').directive('navStuff', function () {
 				self.burger.removeClass('open');
 				self.openNav.removeClass('open-up');
 				self.open = false;
+			},
+
+			isSelected: function(path){
+				var self = this;
+
+				var current = $state.current.name;
+
+				if (current === path){
+					console.log('yol');
+					return true;
+				}
+				else{
+					return false;
+				}
+
+			},
+
+			go: function(path){
+
+				var self = this;
+
+				var current = $state.current.name;
+
+				self.selected = path;
+				self.lastPath = path;
+
+				if (path === current){
+					self.close();
+				}
+				else{
+					$state.go(path);
+				}
 			}
 
 		};
 
 
-		$scope.$on('$locationChangeStart', function(event) {
-			// if ($scope.form.$invalid) {
-			// 	event.preventDefault();
-			// }
-
+		$scope.$on('$locationChangeStart', function() {
 			$scope.nav.close();
 		});
 
@@ -56,4 +87,4 @@ angular.module('locasApp').directive('navStuff', function () {
 		restrict: 'A',
 		link: link
 	};
-});
+}]);

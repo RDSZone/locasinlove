@@ -36,22 +36,37 @@
                 <div class="nav-exit-click open" ng-click="nav.close()"></div>
             </div>
             <ul>
-                <li><a ui-sref="home">Home</a></li>
-                <li><a ui-sref="news">News</a></li>
-                <li><a ui-sref="tour">Tour Dates</a></li>
-                <li><a ui-sref="videos">Videos</a></li>
-                <li><a ui-sref="gallery">Photos</a></li>
+                <li ng-class="{active : nav.isSelected('home')}"><a ng-click="nav.go('home')">Home</a></li>
+                
+                <li ng-class="{active : nav.isSelected('news')}"><a ng-click="nav.go('news')">News</a></li>
+                
+                <li ng-class="{active : nav.isSelected('tour')}"><a ng-click="nav.go('tour')">Tour Dates</a></li>
+                
+                <li ng-class="{active : nav.isSelected('videos')}"><a ng-click="nav.go('videos')">Videos</a></li>
+                
+                <li ng-class="{active : nav.isSelected('gallery')}"><a ng-click="nav.go('gallery')">Photos</a></li>
+                
                 <li><a href="https://locasinlove.bandcamp.com/" target="self">Bandcamp</a></li>
-                <li><a ui-sref="info">About</a></li>
-                <li class="social"><a href="https://www.facebook.com/locasinlove" target="self">
-                    <i class="fa fa-facebook"></i>
-                </a></li>
-                <li class="social"><a href="https://soundcloud.com/locas-in-love" target="self">
-                    <i class="fa fa-soundcloud"></i>
-                </a></li>
-                <li class="social"><a href="https://twitter.com/locasinlove" target="self">
-                    <i class="fa fa-twitter"></i>
-                </a></li>
+                
+                <li ng-class="{active : nav.isSelected('info')}"><a ng-click="nav.go('info')">About</a></li>
+                
+                <li class="social">
+                    <a href="https://www.facebook.com/locasinlove" target="self">
+                        <i class="fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+                <li class="social">
+                    <a href="https://soundcloud.com/locas-in-love" target="self">
+                        <i class="fa fa-soundcloud"></i>
+                    </a>
+                </li>
+                
+                <li class="social">
+                    <a href="https://twitter.com/locasinlove" target="self">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                </li>
             </ul>
         </section>
     </div>
