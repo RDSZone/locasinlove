@@ -16,7 +16,6 @@ angular.module('locasApp').controller('InfoCtrl', ['$scope', '$sce', 'contentful
 
 	contentfulClient.entries({'sys.id': '6doPuPlSdUSMYKYgYGiyKa', 'include': 1}).then(function(response){
 
-		console.log(response);
 
 		$scope.info = {};
 

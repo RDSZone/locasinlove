@@ -10,7 +10,7 @@
 			<div class="cell venue">Venue</div>
 		</div>
 
-		<a class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows">
+		<a class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows | orderBy: 'date'">
 			<div class="cell">{{show.date | date: 'MMM dd'}}</div>
 			<div class="cell">{{show.cityCountry}}</div>
 			<div class="cell venue">{{show.venue}}</div>

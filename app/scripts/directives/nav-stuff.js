@@ -47,7 +47,6 @@ angular.module('locasApp').directive('navStuff', ['$state', function ($state) {
 				var current = $state.current.name;
 
 				if (current === path){
-					console.log('yol');
 					return true;
 				}
 				else{
