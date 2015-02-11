@@ -187,7 +187,7 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
 
       //get ref to current video
       if (self.currentItem <= 0){
-        self.currentItem = self.videoArray.length;
+        self.currentItem = self.videoArray.length - 1;
       }
 
       else{

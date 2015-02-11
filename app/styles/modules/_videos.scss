@@ -111,4 +111,30 @@
 		}
 	}
 
+	.pagination-left, .pagination-right{
+		cursor: url(../images/cursor_left.png), auto !important;
+	}
+
+	.pagination-right{
+		cursor: url(../images/cursor_right.png), auto !important;
+	}
+
+	.pagination-left{
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 15%;
+			height: 100%;
+			z-index: 9;
+		}
+
+	.pagination-right{
+		position: absolute;
+		top: 0;
+		left: 85%;
+		width: 15%;
+		height: 100%;
+		z-index: 10;
+	}
+
 }

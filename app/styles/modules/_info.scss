@@ -27,6 +27,9 @@
 			font-size: 1em;
 			line-height: 1.5;
 			font-weight: lighter;
+			img{
+				max-width: 100%;
+			}
 
 			@include mq("medium"){
 				font-size: 1.5em;

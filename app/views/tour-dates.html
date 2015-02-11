@@ -6,12 +6,14 @@
 	<div class="table">
 		<div class="row head">
 			<div class="cell">Date</div>
+			<div class="cell">Title</div>
 			<div class="cell">Location</div>
 			<div class="cell venue">Venue</div>
 		</div>
 
 		<a class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows | orderBy: 'date'">
-			<div class="cell">{{show.date | date: 'MMM dd'}}</div>
+			<div class="cell"><strong>{{show.date | date: 'MMM dd'}}</strong></div>
+			<div class="cell">{{show.title}}</div>
 			<div class="cell">{{show.cityCountry}}</div>
 			<div class="cell venue">{{show.venue}}</div>
 		</a>
