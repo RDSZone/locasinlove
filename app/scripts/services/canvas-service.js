@@ -55,10 +55,27 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
     width: $window.innerWidth,
     height: $window.innerHeight,
 
+    reset: function(){
+      var self = this;
+
+      drawBg();
+      self.width = window.innerWidth;
+      self.height = window.innerHeight;
+
+      canvas.width = self.width;
+      canvas.height = self.height;
+
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+
+    },
+
 
 
 
     draw: function(){
+      var self = this;
 
       //clears the canvas
       drawBg();
@@ -68,9 +85,9 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
         ctx.drawImage (fallingDrops[i].image, fallingDrops[i].x, fallingDrops[i].y, fallingDrops[i].image.width, fallingDrops[i].image.height);
         fallingDrops[i].y += fallingDrops[i].speed; //Set the falling speed
         
-        if (fallingDrops[i].y > height){  //Repeat the raindrop when it falls out of view
-          fallingDrops[i].y = -55; //Account for the image size
-          fallingDrops[i].x = Math.random() * width;    //Make it appear randomly along the width    
+        if (fallingDrops[i].y > self.height){  //Repeat the raindrop when it falls out of view
+          fallingDrops[i].y = -500; //Account for the image size
+          fallingDrops[i].x = Math.random() * self.width;    //Make it appear randomly along the width    
         }
 
       }
@@ -88,8 +105,9 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
       parent = document.getElementById('landing');
       canvas = document.createElement('canvas');
 
-      self.width = $window.innerWidth;
-      self.height = $window.innerHeight;
+      self.width = window.innerWidth;
+      self.height = window.innerHeight;
+
       canvas.width = self.width;
       canvas.height = self.height;
 
@@ -122,10 +140,14 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
         canvasMethods.draw();
       }
 
+
     }
 
 
   };
+
+  window.addEventListener('resize', canvasMethods.reset, false);
+
 
   // Public API here
   return {
