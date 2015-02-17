@@ -42,7 +42,6 @@ angular.module('locasApp').directive('navStuff', ['$state', function ($state) {
 			},
 
 			isSelected: function(path){
-				var self = this;
 
 				var current = $state.current.name;
 

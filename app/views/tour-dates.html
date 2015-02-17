@@ -2,17 +2,27 @@
 
 	<div ng-include="'views/partials/_loading.html'" ng-if="!showsLoaded"></div>
 
+	<div class="shows-toggle" ng-click="showToggle()">
+		<h3><strong>{{changePeriod}}</strong></h3>
+	</div>
 
 	<div class="table">
 		<div class="row head">
-			<div class="cell">Aktuell</div>
+			<div class="cell">{{currentShowPeriod}}</div>
 			<div class="cell"></div>
 			<div class="cell"></div>
 			<div class="cell venue"></div>
 		</div>
 
-		<a class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows | orderBy: 'date'">
-			<div class="cell"><strong>{{show.date | date: 'MMM dd'}}</strong></div>
+		<a ng-if="showCurrentShows" class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows | orderBy: 'date'">
+			<div class="cell"><strong>{{show.date | date: 'MMM dd yy'}}</strong></div>
+			<div class="cell">{{show.title}}</div>
+			<div class="cell">{{show.cityCountry}}</div>
+			<div class="cell venue">{{show.venue}}</div>
+		</a>
+
+		<a ng-if="!showCurrentShows" class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in pastShows | orderBy: 'date'">
+			<div class="cell"><strong>{{show.date | date: 'MMM dd yy'}}</strong></div>
 			<div class="cell">{{show.title}}</div>
 			<div class="cell">{{show.cityCountry}}</div>
 			<div class="cell venue">{{show.venue}}</div>

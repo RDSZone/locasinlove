@@ -15,7 +15,7 @@ angular.module('locasApp').directive('playerControls', ['youtubeService', functi
 		// Get list of all YouTube videos in playlist
 		//
 	
-		var alreadyInit = youtubeService.alreadyInit();
+		// var alreadyInit = youtubeService.alreadyInit();
 
 		youtubeService.getData().then(function(response){
 

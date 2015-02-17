@@ -58,7 +58,7 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
     reset: function(){
       var self = this;
 
-      drawBg();
+      // drawBg();
       self.width = window.innerWidth;
       self.height = window.innerHeight;
 
@@ -79,6 +79,7 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
 
       //clears the canvas
       drawBg();
+
       
 
       for (var i = 0; i < fallingDrops.length; i++){
@@ -86,7 +87,7 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
         fallingDrops[i].y += fallingDrops[i].speed; //Set the falling speed
         
         if (fallingDrops[i].y > self.height){  //Repeat the raindrop when it falls out of view
-          fallingDrops[i].y = -500; //Account for the image size
+          fallingDrops[i].y = -50; //Account for the image size
           fallingDrops[i].x = Math.random() * self.width;    //Make it appear randomly along the width    
         }
 
@@ -116,6 +117,7 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
       if (canvas.getContext){
 
         ctx = canvas.getContext('2d');
+
 
         for (var i = 0; i < self.noOfDrops; i++){
           var fallingDr = {};

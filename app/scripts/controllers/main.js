@@ -7,6 +7,6 @@
  * # MainCtrl
  * Controller of the locasApp
  */
-angular.module('locasApp').controller('MainCtrl', ['$scope', function ($scope) {
-
-}]);
+angular.module('locasApp').controller('MainCtrl', function () {
+	console.log('Locas In Love');
+});

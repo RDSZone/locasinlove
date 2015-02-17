@@ -87,7 +87,7 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
       var self = this;
       var deferred = $q.defer();
 
-      function onPlayerReady(event){
+      function onPlayerReady(){
         deferred.resolve(self.player);
         self.alreadyInit = true;
       }

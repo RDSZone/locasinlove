@@ -13,9 +13,12 @@ angular.module('locasApp').controller('TourDatesCtrl', ['$scope', 'contentfulCli
 
 	var now = moment();
 
-	var shows = [];
 
 	$scope.shows = [];
+	$scope.pastShows = [];
+	$scope.showCurrentShows = true;
+	$scope.currentShowPeriod = 'AKTUELL';
+	$scope.changePeriod = 'SO PASSÉ';
 
 
 
@@ -43,14 +46,30 @@ angular.module('locasApp').controller('TourDatesCtrl', ['$scope', 'contentfulCli
 			if (moment(show.compareDate).isAfter(now)){
 				$scope.shows.push(show);
 			}
+			else{
+				$scope.pastShows.push(show);
+			}
 
 		}
 
+		console.log($scope.pastShows);
+
 		$scope.showsLoaded = true;
-
-
-
 		
 	});
+
+	$scope.showToggle = function(){
+		if ($scope.changePeriod === 'SO PASSÉ'){
+			$scope.changePeriod = 'AKTUELL';
+			$scope.currentShowPeriod = 'SO PASSÉ';
+			$scope.showCurrentShows = false;
+		}
+		else{
+			$scope.currentShowPeriod = 'AKTUELL';
+			$scope.changePeriod = 'SO PASSÉ';
+			$scope.showCurrentShows = true;
+		}
+
+	};
 
 }]);

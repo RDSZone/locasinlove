@@ -8,6 +8,24 @@
 	@include fast();
 	@include scroll();
 	top: 0;
+	.shows-toggle{
+		position: absolute;
+		display: inline-block;
+		margin-top: 110px;
+		right: 20px;
+		font-weight: bold;
+		font-size: 1.5em;
+		color: $text;
+		background: white;
+		color: black;
+		@include user-select(none);
+		h3{
+			vertical-align: middle;
+			margin: 0;
+			line-height: 30px;
+			padding: 5px 5px 0 5px;
+		}
+	}
 	.table{
 		@include animation(dropIn .5s ease);
 		display: table;
