@@ -33,8 +33,8 @@ angular
         templateUrl: 'views/news.html',
         controller: 'NewsCtrl'
       })
-      .state('tour', {
-        url: '/tour',
+      .state('termine', {
+        url: '/termine',
         templateUrl: 'views/tour-dates.html',
         controller: 'TourDatesCtrl'
       })
@@ -42,8 +42,8 @@ angular
         url: '/videos',
         templateUrl: 'views/videos.html'
       })
-      .state('gallery', {
-        url: '/gallery',
+      .state('bilder', {
+        url: '/bilder',
         templateUrl: 'views/photos.html',
         controller: 'PhotosCtrl'
       })
