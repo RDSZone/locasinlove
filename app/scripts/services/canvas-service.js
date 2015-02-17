@@ -88,7 +88,6 @@ angular.module('locasApp').factory('canvasService', function ($window, $http, $q
         fallingDrops[i].y += fallingDrops[i].speed; //Set the falling speed
         
         if (fallingDrops[i].y > height){  //Repeat the raindrop when it falls out of view
-          console.log('out');
           fallingDrops[i].y = -50; //Account for the image size
           fallingDrops[i].x = Math.random() * width;    //Make it appear randomly along the width    
         }
