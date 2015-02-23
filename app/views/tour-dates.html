@@ -16,16 +16,16 @@
 
 		<a ng-if="showCurrentShows" class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in shows | orderBy: 'date'">
 			<div class="cell"><strong>{{show.date | date: 'MMM dd yy'}}</strong></div>
-			<div class="cell">{{show.title}}</div>
 			<div class="cell">{{show.cityCountry}}</div>
 			<div class="cell venue">{{show.venue}}</div>
+			<div class="cell">{{show.title}}</div>
 		</a>
 
 		<a ng-if="!showCurrentShows" class="row body" ng-href="{{show.url}}" target="self" ng-repeat="show in pastShows | orderBy: 'date'">
 			<div class="cell"><strong>{{show.date | date: 'MMM dd yy'}}</strong></div>
-			<div class="cell">{{show.title}}</div>
 			<div class="cell">{{show.cityCountry}}</div>
 			<div class="cell venue">{{show.venue}}</div>
+			<div class="cell">{{show.title}}</div>
 		</a>
 	</div>
 </section>

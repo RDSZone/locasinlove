@@ -11,10 +11,11 @@
 	.shows-toggle{
 		position: absolute;
 		display: inline-block;
-		margin-top: 110px;
+		margin-top: 105px;
 		right: 20px;
+		height: 30px;
 		font-weight: bold;
-		font-size: 1.5em;
+		font-size: 1em;
 		color: $text;
 		background: white;
 		color: black;
@@ -22,8 +23,9 @@
 		h3{
 			vertical-align: middle;
 			margin: 0;
-			line-height: 30px;
-			padding: 5px 5px 0 5px;
+			line-height: 25px;
+			padding: 5px;
+			font-size: 1em;
 		}
 	}
 	.table{
@@ -44,13 +46,7 @@
 	.row{
 		display: table-row;
 		&.head{
-			font-size: 2.5em;
-			@include mq("medium"){
-				font-size: 2em;
-			}
-			@include mq("large"){
-				font-size: 2em;
-			}
+			font-size: 1.5em;
 			font-weight: bold;
 		}
 		&.body{
