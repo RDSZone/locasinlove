@@ -3,7 +3,7 @@
 	<div ng-include="'views/partials/_loading.html'" ng-if="!newsLoaded"></div>
 
 
-	<div class="news-entry" ng-repeat="news in newsArray | orderBy: date ">
+	<div class="news-entry" ng-repeat="news in newsArray | orderBy: 'date' : true">
 		<h3>{{news.date | date: 'MMM dd yyyy'}}
 		<h1>{{news.title}}</h1>
 		<div class="news-image-wrapper" ng-if="news.image.fields.file.url" >
