@@ -17,14 +17,14 @@
 	@include fast();
 	.spirit-animal{
 		position: absolute;
-		bottom: 0;
 		left: 0;
-		height: 80%;
+		height: 100%;
 		width: 100%;
 		text-align: center;
-		background: url(../images/dog.png) no-repeat center center;
-		background-size: contain;
+		background: url(../images/cuttlefish_crop.jpg) no-repeat center center;
+		background-size: cover;
 		z-index: 0;
+
 		@include mq("medium"){
 			background-position: center center;
 		}

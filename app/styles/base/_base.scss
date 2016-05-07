@@ -16,11 +16,17 @@
 }
 
 ::selection {
-  background: $key;
-  color: $white;
+  background: $text;
+  color: $background;
 }
 ::-moz-selection {
   background: $key;
   color: $white;
+}
+
+html,
+body{
+	margin: 0;
+	padding: 0;
 }
 

@@ -5,7 +5,8 @@
 	width: 100%;
 	height: 100%;
 	z-index: 9;
-	background: black;
+	background: $background;
+	color: $text;
 	@include display(flex);
 	@include align-items(center);
 	@include justify-content(center);
