@@ -22,7 +22,7 @@ angular.module('locasApp').factory('youtubeService', function ($http, $q, $windo
 
   var tube = {
 
-    key: 'AIzaSyBwwZnOqPR-llvZz5mRhtKCFmp-PgWk6Hc',
+    key: 'AIzaSyDMB1w_YZc7sGasrFaJQoaPx51yMnTMpxU',
     base: 'https://www.googleapis.com/youtube/v3',
     userId: 'cTzmNyy1AXfYmLCtIewDhA',
     channelId: 'UUcTzmNyy1AXfYmLCtIewDhA',
