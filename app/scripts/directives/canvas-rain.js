@@ -18,7 +18,7 @@ angular.module('locasApp').directive('canvasRain', ['contentfulClient', 'canvasS
 	var link = function(){
 
 		canvasService.destroy().then(function(){
-			canvasService.setup('images/pixel.png');
+			canvasService.setup('images/drop.555c563c.jpg');
 		});
 	};
 
